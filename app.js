@@ -42,6 +42,7 @@ app.post('/addpalindrome', (req, res) => {
     } else {
         if (isPalindrome(newpalindrome)) {
             palindromes.push(newpalindrome)
+            app.locals.error = ''
         } else {
             console.log('Error - the string entered is not a palindrome')
             app.locals.error = 'Error - the string entered is not a palindrome'
