@@ -1,14 +1,38 @@
 // import the Express framework
-const express = require('express')
+const express = require('express');
+// import bodyParser 
+const bodyParser = require('body-parser');
 // use Express
 const app = express();
 // set the application to use Embedded Javascript - render HTML instead of plain text
 app.set('view engine', 'ejs');
+// use bodyParser middleware - allows us to manipulate the key-value pairs stored in the request object (req.body)
+app.use(bodyParser.urlencoded({extended: true}))
+
+var pals = ["Dammit I'm Mad", "Race car"]
+// transform the array into lowercase so it can be compared later with the palindrome entered by the user
+var palindromes = pals.map((palindrome) => { return palindrome.toLowerCase() })
 
 // route for the root url
 // when accessing the "/" route, the web app will render the homepage
 app.get('/', (req, res) => {
-    return res.render('homepage')
+    res.render('homepage', {palindromes: palindromes});
+})
+
+// route for adding new Palindromes to the database
+app.post('/addpalindrome', (req, res) => {
+    // stores the palindrome entered by the user
+    newpalindrome = (req.body.newpalindrome).toLowerCase();
+    // check if the palindrome already exists in the array
+    var isInArray = palindromes.includes(newpalindrome);
+
+    if (isInArray) {
+        console.log('Error')
+    } else {
+        palindromes.push(newpalindrome)
+    }
+
+    res.redirect('/');
 })
 
 // configure the server to run on port 3000

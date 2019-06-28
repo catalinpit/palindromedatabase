@@ -1,1 +1,18 @@
-<h1>Hello</h1>
+<html>
+    <head>
+        <title>Palindrom Database</title>
+    </head>
+
+    <body>
+        <h1>Add a palindrome</h1>
+        <form action="/addpalindrome" method="POST">
+            <input type="text" name="newpalindrome"/>
+            <button>Add</button>
+        </form>
+
+        <h1>Palindromes in the database</h1>
+            <% for (palindrome in palindromes) { %>
+                <p><%= palindromes[palindrome] %></p>
+            <% } %>
+    </body>
+</html>
