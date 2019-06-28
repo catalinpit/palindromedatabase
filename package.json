@@ -1,0 +1,15 @@
+{
+  "name": "palindromedatabase",
+  "version": "1.0.0",
+  "description": "Application that stores Palindromes",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Catalin Pit",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
