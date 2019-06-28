@@ -37,11 +37,13 @@ app.post('/addpalindrome', (req, res) => {
 
     if (isInArray) {
         console.log('Error - palindrome already exists in the db')
+        app.locals.error = 'Error - palindrome already exists in the db'
     } else {
         if (isPalindrome(newpalindrome)) {
             palindromes.push(newpalindrome)
         } else {
             console.log('Error - the string entered is not a palindrome')
+            app.locals.error = 'Error - the string entered is not a palindrome'
         }
     }
 

@@ -9,6 +9,10 @@
             <input type="text" name="newpalindrome"/>
             <button>Add</button>
         </form>
+        
+        <% if (typeof error != 'undefined') { %>
+            <p><%= error %></p>
+        <% } %>
 
         <h1>Palindromes in the database</h1>
             <% for (palindrome in palindromes) { %>
