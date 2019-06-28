@@ -37,6 +37,7 @@ app.post('/addpalindrome', (req, res) => {
 
     if (isInArray) {
         console.log('Error - palindrome already exists in the db')
+        // used to make the error variable available in the ejs template
         app.locals.error = 'Error - palindrome already exists in the db'
     } else {
         if (isPalindrome(newpalindrome)) {
